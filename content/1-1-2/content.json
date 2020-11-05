@@ -1,0 +1,14 @@
+{
+  "id": "1-1-2",
+  "name": "Smart Screen 1-1-2",
+  "description": "Первый зал - Аркаим",
+  "pages": [{
+    "url": "index.html",
+    "tpl": "index.tpl",
+    "data": {
+      "file": "1-1-2-data.json",
+    },
+  },{
+
+  }]
+}

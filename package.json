@@ -1,0 +1,24 @@
+{
+  "name": "rmh-touch",
+  "description": "Historical Park Russia - My History SmartScreen Engine",
+  "version": "0.1.0",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "start": "node main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/lit3d/lit3d-system",
+  "homepage": "https://github.com/lit3d/lit3d-system",
+  "bugs": "https://github.com/lit3d/lit3d-system/issues",
+  "author": "Lit3D Team <team@lit3d.io> (https://github.com/lit3d)",
+  "contributors": [
+    "Wisdman <wisdman@wisdman.io> (https://github.com/wisdman)",
+    "Yulia Fedyakina <iulia.fedyakina@gmail.com> (https://github.com/saigach)"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "sass": "^1.29.0"
+  }
+}
