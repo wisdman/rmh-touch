@@ -20,7 +20,7 @@ async function templateEngine() {
     if (!(await fs.lstat(filePath)).isFile()) continue
     const { name } = path.parse(filePath)
     const tplStr = await fs.readFile("template/index.tpl", "utf8")
-     Template.set(name, tplStr)
+    Template.set(name, tplStr)
   }
 }
 
