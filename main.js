@@ -1,44 +1,49 @@
 
+import path from "node:path"
 import fs from "node:fs/promises"
 import { Template } from "./engine/template.js"
+import { StyleBuilder } from "./engine/styles.js"
 
-// class Template extends Function {
-//   constructor(tpl) {
-//     const rnd = Math.random().toString(36).substring(2)
+const DIRNAME = path.resolve(path.dirname(""))
+const PATH = (...p) => path.resolve(DIRNAME, ...p)
+const TPL_DIR = PATH("./template")
 
-//     tpl = tpl.replace(/\[\[((?:.|[\r\n\s\t])*?)\]\]/gm, "`; $1; $str += `")
-//     tpl = "let $str = `" + tpl + "`; return $str"
-//     super(tpl)
-//   }
-// }
+async function copyScripts() {
 
+}
+
+async function templateEngine() {
+  const files = await fs.readdir(TPL_DIR)
+  for (const file of files) {
+    if (path.extname(file).toLowerCase() !== ".tpl") continue
+    const filePath = path.resolve(TPL_DIR, file)
+    if (!(await fs.lstat(filePath)).isFile()) continue
+    const { name } = path.parse(filePath)
+    const tplStr = await fs.readFile("template/index.tpl", "utf8")
+     Template.set(name, tplStr)
+  }
+}
 
 void async function main() {
-  let data = await fs.readFile("templates/index.tpl", "utf8")
-  const tpl = new Template(data)
-  console.log(tpl.toString())
-  console.log(tpl([1,2,3,4]))
-  //data = data.replace(/\[\[((?:.|[\r\n\s\t])*?)\]\]/gm, "` $1; $str += `")
-  //console.log(data)
+  await copyScripts()
+  await templateEngine()
 }()
 
 
-// class Callable extends Function {
-//   constructor() {
-//     var closure = function(...args) {
-//       return closure._call(...args)
-//     }
-//     return Object.setPrototypeOf(closure, new.target.prototype)
-// } _call(...args) { console.log(this, args) } }
+
+//console.log(DIRNAME)
+//console.log(PATH("./template"))
+
+// void async function main() {
+//   const files = await fs.promises.readdir(path);
 
 
 
-
-// const fn1 = function() {
-//   const fn0 = function() {
-//     console.dir(this)
-//   }
-//   return fn0.apply({a:10})
-// }
-
-// fn1()
+//   let data = await fs.readFile("template/index.tpl", "utf8")
+//   console.log(data)
+//   const tpl = Template.set("index", data)
+//   console.log(tpl.toString())
+//   //console.log(tpl([1,2,3,4]))
+//   //data = data.replace(/\[\[((?:.|[\r\n\s\t])*?)\]\]/gm, "` $1; $str += `")
+//   //console.log(data)
+// }()

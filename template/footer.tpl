@@ -1,3 +1,0 @@
-<span>
-  ${ this }
-</span>
