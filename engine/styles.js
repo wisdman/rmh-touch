@@ -1,3 +1,4 @@
+import path from "node:path"
 
 const LINK_RX = /<link([^>]+)href=(?:\"([\w\/%:-]+\.s?css)\")([^>]*)>/gm
 
@@ -6,7 +7,7 @@ export class StyleBuilder {
   #cache = new Map()
 
   constructor(root = "./") {
-    this.#root = root
+    this.#root = path.resolve(root)
   }
 
   buildFile = path => {
