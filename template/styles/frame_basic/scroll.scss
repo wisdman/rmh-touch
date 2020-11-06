@@ -1,0 +1,19 @@
+/* width */
+::-webkit-scrollbar {
+  width: 107px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-image: url(../images/prokrutka-zadnik.png);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-image: url(../images/prokrutka.png);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+
+}
